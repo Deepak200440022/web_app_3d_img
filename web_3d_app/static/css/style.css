@@ -1,0 +1,189 @@
+/* Global body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;          /* Light gray background */
+  margin: 0;
+  padding: 0;
+  color: #333;                         /* Standard text color */
+  min-height: 100vh;                  /* Ensure full viewport height */
+}
+
+/* Header section */
+.header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.header h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.25em;
+  color: #222;
+}
+
+.header .subtitle {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Layout container */
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;                    /* Responsive wrap on smaller screens */
+}
+
+/* Upload and UI container */
+.container {
+  background: #ffffff;
+  padding: 30px 40px;
+  width: 400px;
+  min-height: 480px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Upload area hover and dragover effect */
+.upload-area:hover,
+.upload-area.dragover {
+  border-color: #3a86ff;             /* Blue border on hover */
+  background-color: #f0f4ff;         /* Light blue background */
+}
+
+/* Label styling for file input */
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+
+/* Upload icon style */
+.upload-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: grayscale(50%);
+  transition: filter 0.3s ease;
+}
+
+/* Small text info */
+small {
+  font-size: 0.85rem;
+  color: #7a7a7a;
+}
+
+/* Hide native file input */
+input[type="file"] {
+  display: none;
+}
+
+/* Upload button styling */
+#uploadButton {
+  background-color: #3a86ff;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  margin: 1.5rem auto;
+  display: block;
+}
+
+/* Disabled upload button */
+#uploadButton:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* Message area for upload status */
+#responseMessage {
+  color: #555;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+  margin-bottom: 1rem;
+}
+
+/* 3D viewer container */
+#viewerContainer.viewer {
+  width: 480px;
+  height: 480px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Upload area box */
+.upload-area,
+#dropZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 300px;
+  border: 2px dashed #a0a8b8;
+  border-radius: 6px;
+  background-color: #fafbfc;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Preview state removes dashed border */
+#dropZone.has-preview {
+  border: none;
+  padding: 0;
+}
+
+/* Default content shown when no preview image */
+#dropZone .default-upload-content {
+  display: block;
+}
+
+/* Hide default content when preview is present */
+#dropZone.has-preview .default-upload-content {
+  display: none;
+}
+
+/* Overlay layer over the upload area */
+.upload-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Previewed image display */
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}

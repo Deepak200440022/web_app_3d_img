@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI-Based 2D to 3D Image Transformation</title>
+
+  <!-- Link to external CSS stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+  <!-- Import model-viewer library from Google for rendering 3D models -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <!-- Page header with title and subtitle -->
+  <header class="header">
+    <h1>AI-Based 2D to 3D Image Transformation</h1>
+    <p class="subtitle">Transform your 2D images into stunning 3D visuals</p>
+  </header>
+
+  <main class="layout">
+    <div class="container">
+      <!-- Upload area with drag-and-drop and clickable upload input -->
+      <div class="upload-area" id="dropZone">
+        <label for="imageInput" class="upload-overlay">
+          <!-- Default placeholder image shown before file selection -->
+          <img id="defaultImage"
+               src="/static/image_logo.png"
+               alt="Upload placeholder"
+               style="max-width: 100%; max-height: 220px; border-radius: 6px; object-fit: contain;">
+
+          <!-- Instructions shown inside drop zone -->
+          <p>Click to upload or drag and drop</p>
+        </label>
+
+        <!-- Hidden file input element -->
+        <input type="file"
+               id="imageInput"
+               name="image"
+               accept="image/*"
+               required />
+      </div>
+
+      <!-- Button to trigger upload and model generation -->
+      <button id="uploadButton" disabled>Generate 3D View</button>
+
+      <!-- Message container for displaying status or response -->
+      <p id="responseMessage"></p>
+
+      <!-- Button to download generated 3D model -->
+      <button id="downloadButton" disabled>Download 3D Model</button>
+    </div>
+
+    <!-- Container for dynamically injecting the model-viewer component -->
+    <div id="viewerContainer" class="viewer">
+      <!-- model-viewer element will be inserted here via JavaScript -->
+    </div>
+  </main>
+
+  <!-- Load JavaScript handling image upload, preview, rendering, and download -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
